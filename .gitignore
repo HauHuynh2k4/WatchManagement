@@ -1,0 +1,54 @@
+# NetBeans specific
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+.nb-gradle/
+
+# Java specific
+*.class
+*.jar
+*.war
+*.ear
+
+
+# Maven specific (if using Maven)
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+
+# IDE specific (backup files)
+*~
+*.swp
+*.bak
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Configuration files with sensitive information
+src/conf/MANIFEST.MF
+src/conf/persistence.xml
+
+# Libraries folder (if managing dependencies manually)
+!lib/*.jar
+
+# But allow specific JDBC driver if needed
+!sqljdbc4.jar

@@ -1,0 +1,48 @@
+
+.header {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+}
+
+.search-bar {
+    width: 10em;
+}
+
+.header {
+    flex: 1; /* Dãn toàn bộ không gian còn lại của header cho search-bar */
+}
+
+.header .store-name {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.header .icons {
+    display: flex;
+    align-items: center;
+}
+
+.header .icons img {
+    width: 24px;
+    height: 24px;
+    margin-left: 10px; /* Để lại một khoảng cách nhỏ giữa các biểu tượng */
+}
+
+.header .btn {
+    text-decoration: none;
+    color: #fff;
+    background-color: rgb(192, 175, 159);
+    border-radius: 5px;
+    margin-left: 10px; /* To add space between buttons */
+    height: 2.2em;
+}
+
+.header .btn:hover {
+    background-color: rgb(169, 154, 140);
+}
+

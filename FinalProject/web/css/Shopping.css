@@ -1,0 +1,178 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.navbar2 {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(95, 95, 99);
+    padding: 10px 0;
+}
+
+.navbar2 a {
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar2 a:hover {
+    background-color: #575757;
+    color: white;
+    text-decoration: none;
+}
+
+header {
+    background-color: rgb(51, 51, 51);
+    padding: 0px;
+    width: 100%;
+    color: white;
+}
+
+.productMenu {
+    display: flex;
+    justify-content: center;
+    padding-top: 2em;
+    background-color: gray;
+}
+
+.sidebar {
+    flex: 1;
+    margin-left: 2em;
+    margin-right: 2em;
+}
+
+.sidebar h3, .sidebar p {
+    margin: 0 0 10px 0;
+}
+
+.main-content {
+    flex: 4;
+}
+
+.products {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.product {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    margin: 10px;
+    padding: 20px;
+    width: 20em;
+    height: 400px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: white;
+}
+
+.product img {
+    width: 100px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.product h3 {
+    font-size: 1.1em;
+    margin: 10px 0;
+    height: 30px;
+}
+
+.product .price {
+    color: #007bff;
+    margin: 10px 0;
+}
+
+.add-to-cart-button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    width: calc(100% - 50px); /* Chiều rộng của nút "Add to cart" sẽ bù trừ với kích thước của biểu tượng trái tim */
+}
+
+.add-to-cart-button:hover {
+    background-color: #0056b3;
+}
+
+.category {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin: 10px;
+    padding: 20px;
+    background-color: rgba(192, 175, 159, 0.7);
+}
+
+.category input {
+    width: 80%;
+}
+
+.wishlist-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 2rem;
+    color: gray;
+    outline: none;
+    transition: transform 0.2s, color 0.2s;
+}
+
+.wishlist-button:hover .heart {
+    transform: scale(1.2);
+    color: red;
+}
+
+.wishlist-button .heart {
+    display: inline-block;
+}
+.wishlist-button2 {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 2rem;
+    color: red;
+    outline: none;
+    transition: transform 0.2s, color 0.2s;
+}
+
+.wishlist-button2:hover .heart {
+    transform: scale(1.2);
+    color: gray;
+}
+
+.wishlist-button2 .heart {
+    display: inline-block;
+}
+
+.add-to-cart-form {
+    display: inline-block;
+    margin: 0;
+    width: 10em;
+    margin-left: 3em;
+}
+
+.wishlist-form {
+    display: inline-block;
+    margin: 0;
+    width: 3em;
+    margin-right: 2em;
+}
+
+.product-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
