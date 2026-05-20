@@ -1,101 +1,169 @@
-# Watch Management System
+# ⌚ Watch Management System
 
-## Overview
+> A web-based e-commerce and management system for a luxury watch store — built with Java EE, JSP/Servlet, and SQL Server as a solo project for the PRJ301 course at FPT University.
 
-A web-based watch store management system built with Java EE technologies. The system allows users to browse, purchase luxury watches while providing administrators with tools to manage products, users, and orders.
+---
 
-## Technologies Used
+## 📖 About the Project
 
-- Java EE 7
-- JSP/Servlet
-- MSSQL Server
-- Bootstrap 4.5.2
-- HTML/CSS/JavaScript
+**Watch Management System** is a full-featured web application for a luxury watch store, developed solo for the PRJ301 course (Semester 3) at FPT University. The system supports the full customer shopping flow — browsing, searching, cart management, wishlist, and checkout — alongside a complete admin panel for managing products, users, and invoices.
 
-## Features
+Watch brands featured: Rolex, Cartier, Patek Philippe, Hublot, Richard Mille, Casio.
 
-### Customer Features
+---
 
-- Browse watch catalog
-- Search watches by name/ID
-- Shopping cart functionality
-- User authentication
-- Wishlist management
-- Order processing
+## ✨ Features
 
-### Admin Features
+### Customer
+- Browse the full watch catalog with brand and type filtering
+- Search watches by name, ID, brand, type, or price range
+- View detailed watch information page
+- Add to cart, update quantities, remove items
+- Wishlist management (add, view, remove)
+- User registration and login with session management
+- Checkout and order placement
+- View personal order/invoice history
 
-- Product management (CRUD operations)
-- User management
-- Order/Invoice management
+### Admin
+- Product management — add, update, delete watches with images
+- User management — view and update user accounts
+- Invoice management — view all orders, search by user ID
 
-## Project Structure
+---
 
-### Key Components
+## 🛠️ Tech Stack
 
-1. **Frontend**
+| Technology | Details |
+|---|---|
+| Language | Java (JDK 1.8) |
+| Web Layer | JSP / Servlet (Java EE 7) |
+| Architecture | MVC (Model-View-Controller) |
+| Database | SQL Server (MSSQL) |
+| Data Access | JDBC + DAO pattern |
+| Frontend | HTML, CSS, JavaScript, Bootstrap 4.5.2 |
+| Build Tool | Apache Ant (NetBeans) |
+| Server | Apache Tomcat 8.x |
 
-- JSP pages for user interface
-- CSS styling (see `web/css/` directory)
-- Bootstrap for responsive design
-- Video backgrounds for enhanced UX
+---
 
-2. **Backend**
+## 🏛️ Project Structure
 
-- Java Servlets for request handling
-- DAO pattern for database operations
-- MVC architecture
+```
+FinalProject/
+├── src/java/
+│   ├── controller/          # 30 Servlet controllers
+│   └── sample/
+│       ├── product/         # WatchDTO, WatchDAO
+│       ├── user/            # UserDTO, UserDAO, UserError
+│       ├── invoice/         # InvoiceDTO, InvoiceDAO
+│       ├── cart/            # Cart logic
+│       ├── wishlist/        # Wishlist logic
+│       └── utils/           # Utility helpers
+└── web/
+    ├── Home.jsp             # Landing page with video background
+    ├── shopping.jsp         # Product catalog
+    ├── WatchInfo.jsp        # Watch detail page
+    ├── viewCart.jsp         # Shopping cart
+    ├── CheckOut.jsp         # Checkout page
+    ├── ThankYou.jsp         # Order confirmation
+    ├── login.jsp            # User login
+    ├── Register.jsp         # User registration
+    ├── Account.jsp          # User profile
+    ├── about.jsp            # About page
+    ├── admin.jsp            # Admin dashboard
+    ├── ManageWatch.jsp      # Admin — product list
+    ├── InsertWatch.jsp      # Admin — add product
+    ├── UpdateWatch.jsp      # Admin — edit product
+    ├── ManageUser.jsp       # Admin — user list
+    ├── ManageInvoice.jsp    # Admin — invoice list
+    ├── header.jsp           # Shared header component
+    └── css/                 # Per-page stylesheets
+```
 
-3. **Database**
+---
 
-- MSSQL Server database
-- JDBC for database connectivity
+## 📡 Controllers
 
-## Setup Instructions
+| Controller | Description |
+|---|---|
+| `loginController` | User login with session creation |
+| `logoutController` | Session invalidation |
+| `registerController` | New user registration |
+| `UpdateUserController` | User updates own profile |
+| `UpdateUserByAdminController` | Admin updates any user account |
+| `getAllUserController` | Admin — list all users |
+| `getAllWatchController` | Load full product catalog |
+| `GetInformationController` | Load single watch detail |
+| `SearchController` | General search entry point |
+| `SearchWatchByIdOrName` | Search by watch ID or name |
+| `SearchWatchByBrand` | Filter by brand |
+| `SearchWatchByType` | Filter by type |
+| `SearchWatchByPrice` | Filter by price range |
+| `AddNewWatchController` | Admin — add new watch |
+| `UpdateWatchController` | Admin — update watch |
+| `UpdateWatchInfoController` | Admin — update watch details |
+| `DeleteWatchController` | Admin — delete watch |
+| `AddToCartController` | Add item to session cart |
+| `ViewCartController` | View cart contents |
+| `UpdateCartController` | Update item quantity in cart |
+| `RemoveCartController` | Remove item from cart |
+| `CheckOutController` | Process checkout and create invoice |
+| `getAllInvoicesController` | Admin — list all invoices |
+| `SearchInvoiceByUserID` | Search invoices by user |
+| `AddToWishListController` | Add watch to wishlist |
+| `InsertWishListController` | Persist wishlist entry |
+| `ViewWishListController` | View user wishlist |
+| `DeleteWishListController` | Remove item from wishlist |
+| `DeleteController` | Generic delete handler |
+| `MainController` | Front controller / dispatcher |
 
-1. **Prerequisites**
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
 
 - JDK 1.8
 - Apache Tomcat 8.x
-- NetBeans IDE
-- MSSQL Server
+- NetBeans IDE (or any IDE with Ant support)
+- SQL Server
+- `sqljdbc4.jar` driver
 
-2. **Database Configuration**
+### Database Setup
 
-- Configure MSSQL connection in your project
-- Import required SQL driver (sqljdbc4.jar)
+1. Create a new SQL Server database
+2. Import the SQL script (if available) or configure the schema manually
+3. Update the JDBC connection string in `web/META-INF/context.xml`:
 
-3. **Build & Deploy**
+```xml
+<Resource name="jdbc/WatchDB"
+          auth="Container"
+          type="javax.sql.DataSource"
+          driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+          url="jdbc:sqlserver://localhost:1433;databaseName=YOUR_DB_NAME"
+          username="YOUR_USERNAME"
+          password="YOUR_PASSWORD" />
+```
 
-- Open project in NetBeans
-- Build using Ant
-- Deploy to Tomcat server
+### Build & Run
 
-## Key Files
+1. Open the project in NetBeans
+2. Add `sqljdbc4.jar` to the project libraries
+3. Build using Ant: `ant build`
+4. Deploy to Tomcat: `ant deploy`
+5. Access at `http://localhost:8080/FinalProject/`
 
-### Frontend
+---
 
-- `Home.jsp`: Main landing page
-- `shopping.jsp`: Product catalog
-- `login.jsp`: User authentication
-- `admin.jsp`: Admin dashboard
+## 📚 Course Information
 
-### Styling
+- **Course**: PRJ301 — Java Web Application Development
+- **Semester**: Semester 3
+- **University**: FPT University
+- **Type**: Solo project
 
-- `Home.css`: Main styling
-- `Shopping.css`: Product catalog styling
-- `Header.css`: Navigation styling
+---
 
-## Author
+## 📝 License
 
-- Hau Huynh
-- Contact: ngochau1310@gmail.com
-
-## License
-
-This project is protected under standard copyright laws.
-
-## Notes
-
-- Project developed as part of PRJ301 course at FPT University
-- For educational purposes only
+Developed for educational purposes as part of the FPT University PRJ301 course.
